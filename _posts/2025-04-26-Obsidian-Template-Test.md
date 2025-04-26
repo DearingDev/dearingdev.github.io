@@ -1,7 +1,7 @@
 ---
 title: Obsidian Template Test
 author: dearingdev
-date: 2025-04-26 11:04:07 -500
+date: 2025-04-25 11:04:07 -500
 categories:
   - tutorial
 tags:

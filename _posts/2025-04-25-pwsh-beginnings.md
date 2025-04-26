@@ -1,7 +1,7 @@
 ---
 title: Powershell Beginnings
 author: dearingdev
-date: 2025-04-25 17:00:00 -500
+date: 2025-04-25 17:00:00 -0500
 categories:
   - powershell
   - tutorial
