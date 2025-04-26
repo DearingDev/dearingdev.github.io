@@ -2,8 +2,13 @@
 title: Powershell Beginnings
 author: dearingdev
 date: 2025-04-25 17:00:00 -500
-categories: [powershell,tutorial]
-tags: [powershell,jekyll,blog]
+categories:
+  - powershell
+  - tutorial
+tags:
+  - powershell
+  - jekyll
+  - blog
 ---
 
 # Starting a blog
@@ -17,3 +22,7 @@ I've been challenged to create a blog and document my journey towards becoming a
 - software
 
 ### What's next?
+
+![img](assets/images/Pastedimage20250426081202.png)
+
+
