@@ -1,6 +1,6 @@
 ---
 title: "Automated Reboot Notifications with BurntToast: A Simple Guide"
-date: 2025-04-27 17:56:31 -0500
+date: 2025-04-27 18:00:31 -0500
 categories:
   - powershell
 tags:
