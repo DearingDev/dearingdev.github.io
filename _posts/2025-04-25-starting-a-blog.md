@@ -1,6 +1,5 @@
 ---
 title: Starting a blog
-author: dearingdev
 date: 2025-04-25 17:00:00 -0500
 categories:
   - personal
