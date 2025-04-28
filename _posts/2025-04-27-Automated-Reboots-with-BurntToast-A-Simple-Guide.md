@@ -18,7 +18,7 @@ Oftentimes, I find myself wanting to notify a user to restart their computer and
 
 So let's take a look and see how BurntToast can improve our workflow! The documentation for module can be found on Github at the following link:
 
-https://github.com/Windos/BurntToast
+[BurntToast Github Page](https://github.com/Windos/BurntToast)
 
 ### Installing the module and creating a protocol handler
 
@@ -166,7 +166,7 @@ While this is a straightforward notification, it hints at BurntToast’s real po
 
 
 #### Special thanks
-Special shout out to Kelvin Tegelaar. His script was the inspiration for this and it can be found on his blog: https://www.cyberdrain.com/monitoring-with-powershell-notifying-users-of-windows-updates/
+Special shout out to Kelvin Tegelaar. His script was the inspiration for this and it can be found on his blog: [Cyberdrain](https://www.cyberdrain.com/monitoring-with-powershell-notifying-users-of-windows-updates/)
 
 
 
