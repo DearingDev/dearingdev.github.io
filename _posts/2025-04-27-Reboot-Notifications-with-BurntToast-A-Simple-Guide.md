@@ -1,5 +1,5 @@
 ---
-title: "Automated Reboot Notifications with BurntToast: A Simple Guide"
+title: "Reboot Notifications with BurntToast: A Simple Guide"
 date: 2025-04-27 18:00:31 -0500
 categories:
   - powershell
