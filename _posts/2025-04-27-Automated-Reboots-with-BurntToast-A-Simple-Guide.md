@@ -30,74 +30,78 @@ We need a protocol handler to allow us to trigger a reboot by simply opening a s
 
 ```powershell
 # This script is designed to be run as an administrator or as the SYSTEM account.
+
 $ModuleName = 'BurntToast'
 $MinimumVersion = '0.8.5'
 
 try {
-    # Check if the module is installed and at least the minimum version.
-    $InstalledModule = Get-InstalledModule -Name $ModuleName -ErrorAction Stop
-    if ($InstalledModule.Version -lt $MinimumVersion) {
-        Write-Warning "BurntToast module is installed, but version ($($InstalledModule.Version)) is older than the minimum required ($MinimumVersion).  Consider updating."
-    }
+    # Check if the module is installed and at least the minimum version.
+    $InstalledModule = Get-InstalledModule -Name $ModuleName -ErrorAction Stop
+    if ($InstalledModule.Version -lt $MinimumVersion) {
+        Write-Warning "BurntToast module is installed, but version ($($InstalledModule.Version)) is older than the minimum required ($MinimumVersion).  Consider updating."
+    }
 }
 catch {
-    Write-Warning "BurntToast module not found. Attempting to install..."
-    # Check for NuGet provider, install if missing
-    if ( -not ( Get-PackageProvider -ListAvailable | Where-Object Name -eq "Nuget" ) ) {
-        Write-Warning "NuGet provider not found. Installing..."
-        try {
-            Install-PackageProvider -Name NuGet -Force -ErrorAction Stop
-        }
-        catch {
-            Write-Error "Failed to install NuGet provider: $($_.Exception.Message)"
-            exit 1  # Exit the script if NuGet provider installation fails
-        }
-    }
-    # Install the module
-    try {
-        Install-Module -Name $ModuleName -Force -ErrorAction Stop
-    }
-    catch {
-        Write-Error "Failed to install BurntToast module: $($_.Exception.Message)"
-        exit 1 # Exit the script if module installation fails
-    }
-} 
+    Write-Warning "BurntToast module not found. Attempting to install..."
+    # Check for NuGet provider, install if missing
+    if ( -not ( Get-PackageProvider -ListAvailable | Where-Object Name -eq "Nuget" ) ) {
+        Write-Warning "NuGet provider not found. Installing..."
+        try {
+            Install-PackageProvider -Name NuGet -Force -ErrorAction Stop
+        }
+        catch {
+            Write-Error "Failed to install NuGet provider: $($_.Exception.Message)"
+            exit 1  # Exit the script if NuGet provider installation fails
+        }
+    }
+
+    # Install the module
+    try {
+        Install-Module -Name $ModuleName -Force -ErrorAction Stop
+    }
+    catch {
+        Write-Error "Failed to install BurntToast module: $($_.Exception.Message)"
+        exit 1 # Exit the script if module installation fails
+    }
+}
+
 
 # Import the module
 try {
-    Import-Module -Name $ModuleName -Force -ErrorAction Stop
+    Import-Module -Name $ModuleName -Force -ErrorAction Stop
 }
 catch {
-    Write-Error "Failed to import BurntToast module: $($_.Exception.Message)"
-    exit 1 # Exit the script if module import fails
-} 
+    Write-Error "Failed to import BurntToast module: $($_.Exception.Message)"
+    exit 1 # Exit the script if module import fails
+}
+
 
 # Checking if ToastReboot:// protocol handler is present
 try {
-    New-PSDrive -Name HKCR -PSProvider Registry -Root HKEY_CLASSES_ROOT -ErrorAction SilentlyContinue | Out-Null
+    New-PSDrive -Name HKCR -PSProvider Registry -Root HKEY_CLASSES_ROOT -ErrorAction SilentlyContinue | Out-Null
 }
 catch {
-    Write-Error "Failed to create HKCR PSDrive: $($_.Exception.Message)"
-    exit 1
+    Write-Error "Failed to create HKCR PSDrive: $($_.Exception.Message)"
+    exit 1
 }
 
 $ProtocolHandler = Get-Item 'HKCR:\ToastReboot' -ErrorAction SilentlyContinue
 
 if (-not $ProtocolHandler) {
-    # Create handler for reboot
-    try {
-        New-Item -Path 'HKCR:\ToastReboot' -ItemType Directory -Force -ErrorAction Stop
-        Set-ItemProperty -Path 'HKCR:\ToastReboot' -Name '(Default)' -Value 'url:ToastReboot' -Force -ErrorAction Stop
-        Set-ItemProperty -Path 'HKCR:\ToastReboot' -Name 'URL Protocol' -Value '' -Force -ErrorAction Stop
-        New-ItemProperty -Path 'HKCR:\ToastReboot' -Name 'EditFlags' -Value 2162688 -PropertyType DWord -Force -ErrorAction Stop
-        New-Item -Path 'HKCR:\ToastReboot\Shell\Open\command' -ItemType Directory -Force -ErrorAction Stop
-        Set-ItemProperty -Path 'HKCR:\ToastReboot\Shell\Open\command' -Name '(Default)' -Value "C:\Windows\System32\shutdown.exe -r -t 30" -Force -ErrorAction Stop
-        Write-Host "ToastReboot protocol handler created."
-    }
-    catch {
-        Write-Error "Failed to create ToastReboot protocol handler: $($_.Exception.Message)"
-        exit 1
-    }
+    # Create handler for reboot
+    try {
+        New-Item -Path 'HKCR:\ToastReboot' -ItemType Directory -Force -ErrorAction Stop
+        Set-ItemProperty -Path 'HKCR:\ToastReboot' -Name '(Default)' -Value 'url:ToastReboot' -Force -ErrorAction Stop
+        Set-ItemProperty -Path 'HKCR:\ToastReboot' -Name 'URL Protocol' -Value '' -Force -ErrorAction Stop
+        New-ItemProperty -Path 'HKCR:\ToastReboot' -Name 'EditFlags' -Value 2162688 -PropertyType DWord -Force -ErrorAction Stop
+        New-Item -Path 'HKCR:\ToastReboot\Shell\Open\command' -ItemType Directory -Force -ErrorAction Stop
+        Set-ItemProperty -Path 'HKCR:\ToastReboot\Shell\Open\command' -Name '(Default)' -Value "C:\Windows\System32\shutdown.exe -r -t 30" -Force -ErrorAction Stop
+        Write-Host "ToastReboot protocol handler created."
+    }
+    catch {
+        Write-Error "Failed to create ToastReboot protocol handler: $($_.Exception.Message)"
+        exit 1
+    }
 }
 ```
 
@@ -112,40 +116,39 @@ Now we need to display the actual toast notification. I use PDQ Connect to run t
 # It will create a toast notification to inform the user that updates have been installed and prompt them to reboot or snooze the message.
 
 try {
-    # Define Toast Notification Content
-    $Text1 = New-BTText -Content "Message from IT Department"
-    $Text2 = New-BTText -Content "Updates have been installed on your computer. Please select if you'd like to reboot now, or snooze this message."
+    # Define Toast Notification Content
+    $Text1 = New-BTText -Content "Message from IT Department"
+    $Text2 = New-BTText -Content "Updates have been installed on your computer. Please select if you'd like to reboot now, or snooze this message."
 
-    # Define Buttons
-    $Button = New-BTButton -Content "Snooze" -snooze -id 'SnoozeTime'
-    $Button2 = New-BTButton -Content "Reboot now" -Arguments "ToastReboot:" -ActivationType Protocol
+    # Define Buttons
+    $Button = New-BTButton -Content "Snooze" -snooze -id 'SnoozeTime'
+    $Button2 = New-BTButton -Content "Reboot now" -Arguments "ToastReboot:" -ActivationType Protocol
 
-    # Define Snooze Selection Box Items
-    $15Min = New-BTSelectionBoxItem -Id 15 -Content '15 minutes'
-    $1Hour = New-BTSelectionBoxItem -Id 60 -Content '1 hour'
-    $4Hour = New-BTSelectionBoxItem -Id 240 -Content '4 hours'
-    $Items = $15Min, $1Hour, $4Hour
+    # Define Snooze Selection Box Items
+    $15Min = New-BTSelectionBoxItem -Id 15 -Content '15 minutes'
+    $1Hour = New-BTSelectionBoxItem -Id 60 -Content '1 hour'
+    $4Hour = New-BTSelectionBoxItem -Id 240 -Content '4 hours'
+    $Items = $15Min, $1Hour, $4Hour
 
-    # Define Snooze Selection Box
-    $SelectionBox = New-BTInput -Id 'SnoozeTime' -DefaultSelectionBoxItemId 15 -Items $Items
+    # Define Snooze Selection Box
+    $SelectionBox = New-BTInput -Id 'SnoozeTime' -DefaultSelectionBoxItemId 15 -Items $Items
 
-    # Define Actions
-    $Action = New-BTAction -Buttons $Button, $Button2 -inputs $SelectionBox
+    # Define Actions
+    $Action = New-BTAction -Buttons $Button, $Button2 -inputs $SelectionBox
 
-    # Define Binding and Visual
-    $Binding = New-BTBinding -Children $Text1, $Text2
-    $Visual = New-BTVisual -BindingGeneric $Binding
+    # Define Binding and Visual
+    $Binding = New-BTBinding -Children $Text1, $Text2
+    $Visual = New-BTVisual -BindingGeneric $Binding
 
-    # Define Content
-    $Content = New-BTContent -Visual $Visual -Actions $Action -Scenario Reminder
+    # Define Content
+    $Content = New-BTContent -Visual $Visual -Actions $Action -Scenario Reminder
 
-    # Submit Notification
-    Submit-BTNotification -Content $Content
+    # Submit Notification
+    Submit-BTNotification -Content $Content
 }
-
 catch {
-    # Error handling
-    Write-Error "Error creating/submitting toast notification: $($_.Exception.Message)"
+    # Error handling
+    Write-Error "Error creating/submitting toast notification: $($_.Exception.Message)"
 }
 ```
 
