@@ -239,7 +239,6 @@ How about more?
 We can now refresh our browser and see our new post.
 
 ![Pasted image 20250428212956.png](assets/img/Pasted%20image%2020250428212956.png)
-
 > You can also preview the markdown file directly in VSCode by selecting the preview icon.
 {: .prompt-top }
 
