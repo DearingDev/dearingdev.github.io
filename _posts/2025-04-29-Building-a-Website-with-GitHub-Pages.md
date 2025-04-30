@@ -1,9 +1,8 @@
 ---
 title: Building a Website with Github Pages
-author: dearingdev
 date: 2025-04-29 21:08:22 -0500
 categories:
-  - tutorial
+  - tutorials
 tags:
   - jekyll
   - github
@@ -38,7 +37,7 @@ After you've created your repository you will want to install Git on your comput
 
 [Git for Windows](https://gitforwindows.org/)
 
->**Note**: I generally stick with most of the default options during the install but I do set Visual Studio Code to be the default editor for Git. I also set the default branch name for new repositories to be "main".
+>**Note**: I recommend setting Visual Studio Code to be the default editor for Git.
 {: .prompt-tip }
 
 You can verify that Git is installed by running `git -v`. If Git is installed then it will display the current installed version.
@@ -112,7 +111,7 @@ Congratulations! You've made your first GitHub Pages website and it's beautiful.
 
 # Part 2 - Introducing Jekyll
 
-> For this section you are going to delete the previous repository and use a template.
+> Please be sure to delete your previous repository so that you can create a new one using a template.
 {: .prompt-info }
 
 I mentioned earlier that Jekyll is a static site generator and it has a thriving community. We want to take advantage of the graphic/web design prowess of others that have come before us. They've so generously contributed their work and it would be a shame not to use it. There is a whole slew of themes out there free for the taking. You can find some popular ones on GitHub:
@@ -121,9 +120,9 @@ I mentioned earlier that Jekyll is a static site generator and it has a thriving
 
 ### Creating a repository from a template
 
-For this demonstration I suggest using the theme [Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy). There are lots of great notes about how to [get started](https://chirpy.cotes.page/posts/getting-started/) with this theme.
+For this demonstration I will be using the [Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy) theme. There are lots of great notes about how to [get started](https://chirpy.cotes.page/posts/getting-started/) with this theme.
 
-The developer suggests using the chirpy-starter [template](https://github.com/cotes2020/chirpy-starter). I you deleted the repository from part one you can click `Use this template`, `Create a new repository`, and set the name to `username.github.io`. 
+The developer suggests using the chirpy-starter [template](https://github.com/cotes2020/chirpy-starter). If you deleted the repository from earlier you can go ahead and click `Use this template`, `Create a new repository`, and set the name to `username.github.io`. 
 
 ### Installing dependencies
 
@@ -162,7 +161,7 @@ Now that your dependencies are installed let's move on to building the website.
 
 Let's clone the repository to pull down the files from the template we grabbed earlier. 
 
-> Note: You may want to delete the local repository directory from the earlier example or set this in a different location.
+> Note: You will need to delete the local repository directory from the earlier example or clone this in a different location.
 
 ```bash
 git clone https://github.com/pwshmode/pwshmode.github.io.git
@@ -234,16 +233,10 @@ How about more?
 - lists
 - are
 - cool
-
-`commands`
-
-```powershell
-New-Item 2025-04-25-post.md
-```
-```
 ```
 
-We can refresh our browser and see our new post.
+
+We can now refresh our browser and see our new post.
 
 ![Pasted image 20250428212956.png](assets/img/Pasted%20image%2020250428212956.png)
 
@@ -282,18 +275,6 @@ You want to know something really cool about this process? The build orocess for
 
 ![Pasted image 20250428215610.png](assets/img/Pasted%20image%2020250428215610.png)
 
-This theme contained a workflow that automatically builds our site using `jekyll build` and deploys the results to Github Pages. This eliminates the manual build and deployment steps for us. You can find the "workflow" under `.github\workflows\pages-deploy.yml`. If you push changes and your site isn't updating, remember to check here for the error logs!
+This theme contained a workflow that automatically builds our site using `jekyll build` and deploys the results to GitHub Pages. This eliminates the manual build and deployment steps for us. You can find the "workflow" under `.github\workflows\pages-deploy.yml`. If you push changes and your site isn't updating, remember to check here for the error logs!
 
 My next post will cover how to utilize the popular notetaking app Obsidian to write posts for your website.
-
-
-
-
-
-
-
-
-
-
-
-
