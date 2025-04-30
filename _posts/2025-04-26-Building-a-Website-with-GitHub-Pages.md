@@ -30,7 +30,7 @@ First and foremost, you are going to need a GitHub account. You can use the link
 
 Once you've created your account you'll want to create a new repository. Make sure you set the repository name to be `*username*.github.io`. You'll also want to set this repository to be **public**.
 
-![Pasted image 20250428183237.png](assets/img/Pasted%20image%2020250428183237.png)
+![Pasted image 20250428183237.png](../assets/img/Pasted%20image%2020250428183237.png)
 
 After you've created your repository you will want to install Git on your computer. You could opt for the GitHub Desktop app but I'm going to stick with Git for Windows for this tutorial. It can be downloaded at the link below.
 
