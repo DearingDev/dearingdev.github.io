@@ -278,17 +278,13 @@ After pushing your changes and waiting just a bit, navigate to your github pages
 
 *Note: You may need to clear your browser's cache if the content hasn't updated.*
 
-You want to know something really cool about this process? The build for your webpage was done through **GitHub Actions**. You can see this process by navigating to the `Actions` tab under your repository. 
+You want to know something really cool about this process? The build orocess for your webpage was done through **GitHub Actions**. You can see this process by navigating to the `Actions` tab under your repository. 
 
 ![Pasted image 20250428215610.png](assets/img/Pasted%20image%2020250428215610.png)
 
 This theme contained a workflow that automatically builds our site using `jekyll build` and deploys the results to Github Pages. This eliminates the manual build and deployment steps for us. You can find the "workflow" under `.github\workflows\pages-deploy.yml`. If you push changes and your site isn't updating, remember to check here for the error logs!
 
 My next post will cover how to utilize the popular notetaking app Obsidian to write posts for your website.
-
-# Part 3 - Integrating Obsidian
-
-I use Obsidian quite a lot for my own personal notetaking. It's very functional out of the box and can become quite powerful when you add in a few plugins. Because it is something I use on a daily I felt it would be a way of reducing friction to create more blog posts.
 
 
 
