@@ -117,11 +117,11 @@ We mentioned earlier that Jekyll is a static site generator and it has a thrivin
 
 For the demonstration here we're going to be using theme [Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy). There are lots of great notes about how to [get started](https://chirpy.cotes.page/posts/getting-started/) with this theme.
 
-We are going to use the chirpy-starter [template]([cotes2020/chirpy-starter: A website startup template using the Chirpy theme gem.](https://github.com/cotes2020/chirpy-starter)). Remember we deleted the repository from part one so we can click `Use this template` and `Create a new repository`. We are going to set the name to `username.github.io`.
+We are going to use the chirpy-starter [template](https://github.com/cotes2020/chirpy-starter)). Remember we deleted the repository from part one so we can click `Use this template` and `Create a new repository`. We are going to set the name to `username.github.io`.
 
 ### Installing dependencies
 
-Now we need to prepare our development environment. This theme offers two different ways: Dev Containers or setting it up natively. While Dev Containers are recommended for Windows, for the sake of this tutorial we are going to install the necessary prerequisites and go from there. Here is the documentation for installing [Jekyll on Windows]([Jekyll on Windows | Jekyll • Simple, blog-aware, static sites](https://jekyllrb.com/docs/installation/windows/)). 
+Now we need to prepare our development environment. This theme offers two different ways: Dev Containers or setting it up natively. While Dev Containers are recommended for Windows, for the sake of this tutorial we are going to install the necessary prerequisites and go from there. Here is the documentation for installing [Jekyll on Windows](https://jekyllrb.com/docs/installation/windows/)). 
 
 #### Installing Ruby
 
