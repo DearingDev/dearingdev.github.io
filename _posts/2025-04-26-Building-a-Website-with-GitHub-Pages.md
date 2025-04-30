@@ -30,7 +30,7 @@ First and foremost, you are going to need a GitHub account. You can use the link
 
 Once you've created your account you'll want to create a new repository. Make sure you set the repository name to be `*username*.github.io`. You'll also want to set this repository to be **public**.
 
-![Pasted image 20250428183237.png](../assets/img/Pasted%20image%2020250428183237.png)
+![Pasted image 20250428183237.png](assets/img/Pasted%20image%2020250428183237.png)
 
 After you've created your repository you will want to install Git on your computer. You could opt for the GitHub Desktop app but I'm going to stick with Git for Windows for this tutorial. It can be downloaded at the link below.
 
@@ -101,7 +101,7 @@ You may be prompted to sign into GitHub if you haven't already done so.
 
 Congratulations! You've made your first GitHub Pages website and it's beautiful. 
 
-![Pasted image 20250428184420.png](../assets/img/Pasted%20image%2020250428184420.png)
+![Pasted image 20250428184420.png](assets/img/Pasted%20image%2020250428184420.png)
 
 (Note: beauty is subjective). We could stop there, but where is the fun in that?
 
@@ -127,16 +127,16 @@ Now we need to prepare our development environment. This theme offers two differ
 
 Download the Ruby+Devkit installer from [RubyInstaller Downloads](https://rubyinstaller.org/downloads/). (v3.3.8-1 is the recommended installer at the time of this post).
 
-![Pasted image 20250428200744.png](../assets/img/Pasted%20image%2020250428200744.png)
+![Pasted image 20250428200744.png](assets/img/Pasted%20image%2020250428200744.png)
 
 Be sure the Run `ridk install` option is selected.
 
-![Pasted image 20250428200850.png](../assets/img/Pasted%20image%2020250428200850.png)
+![Pasted image 20250428200850.png](assets/img/Pasted%20image%2020250428200850.png)
 
 Then press `ENTER` when selecting the components to install the base installation and the MINGW development toolchain. 
 
-![Pasted image 20250428200937.png](../assets/img/Pasted%20image%2020250428200937.png)
-![Pasted image 20250428201053.png](../assets/img/Pasted%20image%2020250428201053.png)
+![Pasted image 20250428200937.png](assets/img/Pasted%20image%2020250428200937.png)
+![Pasted image 20250428201053.png](assets/img/Pasted%20image%2020250428201053.png)
 
 You can verify that Ruby is installed by opening a new terminal window and running `ruby -v`. That will return the version of Ruby that you installed.
 
@@ -239,7 +239,7 @@ New-Item 2025-04-25-post.md
 
 We can refresh our browser and see our new post.
 
-![Pasted image 20250428212956.png](../assets/img/Pasted%20image%2020250428212956.png)
+![Pasted image 20250428212956.png](assets/img/Pasted%20image%2020250428212956.png)
 
 > You can also preview the markdown file directly in VSCode by selecting the preview icon.
 
@@ -273,7 +273,7 @@ After pushing your changes and waiting just a bit, navigate to your github pages
 
 You want to know something really cool about this process? The build for your webpage was done through **GitHub Actions**. You can see this process by navigating to the `Actions` tab under your repository. 
 
-![Pasted image 20250428215610.png](../assets/img/Pasted%20image%2020250428215610.png)
+![Pasted image 20250428215610.png](assets/img/Pasted%20image%2020250428215610.png)
 
 This theme contained a workflow that automatically builds our site using `jekyll build` and deploys the results to Github Pages. This eliminates the manual build and deployment steps for us. You can find the "workflow" under `.github\workflows\pages-deploy.yml`.
 

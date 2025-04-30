@@ -14,7 +14,7 @@ The BurntToast PowerShell module is a great way to display toast notifications i
 
 Oftentimes, I find myself wanting to notify a user to restart their computer and this module offers a creative way to do just that. There is the built-in `msg` command that will let you send a message but the window it presents feels a little bit dated and the button isn't actionable.
 
-![Pasted image 20250427180320.png](../assets/img/Pasted%20image%2020250427180320.png)
+![Pasted image 20250427180320.png](assets/img/Pasted%20image%2020250427180320.png)
 
 So let's take a look and see how BurntToast can improve our workflow! The documentation for module can be found on Github at the following link:
 
@@ -154,7 +154,7 @@ catch {
 
 And here is what our notification looks like! You can select the drop-down menu to select other snooze intervals.
 
-![Pasted image 20250427182916.png](../assets/img/Pasted%20image%2020250427182916.png)
+![Pasted image 20250427182916.png](assets/img/Pasted%20image%2020250427182916.png)
 
 These scripts can be found on my github:
 
