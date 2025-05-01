@@ -1,6 +1,6 @@
 ---
 title: "From Obsidian Vault to Static Site: Automating with PowerShell & Jekyll"
-date: 2025-05-01 09517:20 -0500
+date: 2025-05-01 05:17:20 -0500
 categories:
   - tutorial
 tags:
