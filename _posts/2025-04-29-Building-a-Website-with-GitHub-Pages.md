@@ -7,7 +7,6 @@ tags:
   - jekyll
   - github
 ---
-# Building a website
 
 So, you’ve got something to say? A project you’re excited about? Or maybe just a burning desire to share your thoughts with the world? Starting a blog can seem like a huge undertaking, but it doesn’t have to be. So let's do this together! In this post, I’ll walk you through the process of launching your own website, leveraging the power of GitHub Pages and the flexibility of Jekyll to build a functional blog incredibly easy.
 
